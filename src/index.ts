@@ -1,8 +1,7 @@
 import calculate from "./calculate";
 
-const numString = "a b c"
+const numString = "//;\n1;2"
 
 const output = calculate(numString)
 
 console.table({ output })
-

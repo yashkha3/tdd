@@ -12,10 +12,38 @@ test('should handle different delimiters', () => {
   expect(calculate('1\n2,3')).toBe(6);
 });
 
-test('should throw an exception for negative numbers', () => {
-  expect(() => calculate('-1')).toThrow('negative numbers not allowed');
+test('should throw an exception for negative numbers first', () => {
+  expect(() => calculate('-1')).toThrow('negative numbers not allowed -1');
 });
 
-test('should handle spaces in input', () => {
-  expect(calculate('a b c')).toBe(0);
+test('should handle multi-digit numbers in input', () => {
+  expect(calculate('1234567')).toBe(1234567);
+});
+
+test('should convert next line to commas', () => {
+  expect(calculate('1,2,3')).toBe(6);
+});
+
+test('should throw an exception for negative numbers second', () => {
+  expect(() => calculate('-1\n-4')).toThrow('negative numbers not allowed -1,-4');
+});
+
+test('should throw an exception for negative numbers third', () => {
+  expect(() => calculate('-1,-4,-7')).toThrow('negative numbers not allowed -1,-4,-7');
+});
+
+test('should handle characters in input first', () => {
+  expect(calculate('a,b,c')).toBe(0);
+});
+
+test('should handle characters in input second', () => {
+  expect(calculate('a,2,c')).toBe(2);
+});
+
+test('should handle custom delimiter first', () => {
+  expect(calculate('//;\n1;2')).toBe(3);
+});
+
+test('should handle custom delimiter second', () => {
+  expect(calculate('//{\n1{2{3')).toBe(6);
 });
