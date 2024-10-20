@@ -4,11 +4,11 @@ function calculate(input: string): number {
     if(input.startsWith('//')){
       customDelimiter = input[2]
     }
-    
+
     const pattern = new RegExp(`${customDelimiter}|\n`, 'g')
     const numbers = input.split(pattern)
 
-    let total = 0
+    let total = 0 
     const negativeNumbers = []
 
     for(let num of numbers){

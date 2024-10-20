@@ -47,3 +47,7 @@ test('should handle custom delimiter first', () => {
 test('should handle custom delimiter second', () => {
   expect(calculate('//{\n1{2{3')).toBe(6);
 });
+
+test('should handle custom delimiter fourth', () => {
+  expect(calculate('//{4{5{6')).toBe(15);
+});
