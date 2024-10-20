@@ -1,6 +1,13 @@
 function calculate(input: string): number {
     const numbers = input.split(/\n|\,/);
-    return numbers.reduce((acc, num) => acc + (+num.trim()), 0);
+    let total = 0
+
+    for(let num of numbers){
+      if(+num < 0) throw new Error('negative numbers not allowed')
+      total += +num
+    }
+
+    return total
   }
 
 export default calculate;
