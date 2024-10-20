@@ -2,7 +2,7 @@ import calculate from '../src/calculate'
 
 test('should return 0 for an empty string', () => {
     expect(calculate('')).toBe(0)
-  })
+});
 
 test('should return the sum for a string with one number', () => {
   expect(calculate('1')).toBe(1);
@@ -14,4 +14,8 @@ test('should handle different delimiters', () => {
 
 test('should throw an exception for negative numbers', () => {
   expect(() => calculate('-1')).toThrow('negative numbers not allowed');
+});
+
+test('should handle spaces in input', () => {
+  expect(calculate('a b c')).toBe(0);
 });

@@ -1,6 +1,6 @@
 import calculate from "./calculate";
 
-const numString = "1\n2,3,4"
+const numString = "a b c"
 
 const output = calculate(numString)
 
